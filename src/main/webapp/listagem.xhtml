@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:head>
+        <title>Listagem</title>
+        <style>
+            body {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                margin: 0;
+            }
+
+            .container {
+                text-align: center;
+            }
+        </style>
+    </h:head>
+
+    <h:body>
+        <div class="container">
+            <h1>Listagem</h1>
+              <h:dataTable >
+            <h:column>
+                <f:facet name="header">ID</f:facet>
+                #{lancamento.id}
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">Descrição</f:facet>
+                #{lancamento.descricao}
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">Valor</f:facet>
+                #{lancamento.valor}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Tipo</f:facet>
+                #{lancamento.tipo}
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">Ações</f:facet>
+                
+                <h:link outcome="detalhes.xhtml" value="Detalhes">
+                    <f:param name="id" value="#{lancamento.id}" />
+                </h:link>
+            </h:column>
+        </h:dataTable>
+
+            <h:link outcome="index.xhtml" value="Ir para Cadastro" />
+        </div>
+    </h:body>
+</html>
